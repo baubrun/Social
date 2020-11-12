@@ -1,4 +1,10 @@
-import React from "react";
+import React, {useEffect, useState,} from "react";
+import {useDispatch} from "react-redux"
+
+import {
+    getPosts,
+} from "./redux/postSlice"
+
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -12,6 +18,11 @@ import Form from "./components/form/Form";
 
 const App = () => {
     const classes = useStyles()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [dispatch])
 
 
   return (
