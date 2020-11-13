@@ -13,9 +13,6 @@ export default makeStyles(() => ({
         justifyContent: "center",
         margin: "30px 0",
     },
-    heading: {
-        color: "#FF8370",
-    },
     img: {
         marginLeft: "15px",
     },

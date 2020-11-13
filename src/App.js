@@ -1,6 +1,9 @@
 import React, {useEffect, useState,} from "react";
 import {useDispatch} from "react-redux"
 
+import { ThemeProvider } from "@material-ui/core/styles";
+import { theme } from "./mui-config";
+
 import {
     getPosts,
 } from "./redux/postSlice"
@@ -26,9 +29,11 @@ const App = () => {
 
 
   return (
+    <ThemeProvider theme={theme}>
+
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">
+        <Typography color="primary" variant="h2" align="center">
           Events
         </Typography>
         <img className={classes.img} src={eventsIcon} alt="events" height="60" />
@@ -40,7 +45,6 @@ const App = () => {
               <Posts />
             </Grid>
             <Grid item sm={4} xs={12}>
-              {" "}
               <Form />
             </Grid>
           </Grid>
@@ -48,6 +52,7 @@ const App = () => {
       </Grow>
       <Grid></Grid>
     </Container>
+    </ThemeProvider>
   );
 };
 

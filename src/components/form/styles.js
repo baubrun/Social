@@ -8,7 +8,10 @@ export default makeStyles((theme) => ({
   },
   fileInput: {
     margin: "10px 0",
-    width: "97%",
+    // width: "97%",
+  },
+  heading: {
+    color: "white",
   },
   paper: {
     padding: theme.spacing(2),
@@ -18,7 +21,7 @@ export default makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  submit: {
+  btn: {
     marginBottom: 10,
   },
 }));
