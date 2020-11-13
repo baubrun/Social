@@ -49,7 +49,7 @@ const Form = () => {
         onSubmit={(evt) => handleSubmit(evt)}
         noValidate
       >
-        <Typography variant="h6">Events</Typography>
+        <Typography variant="h6">Social</Typography>
         <TextField
           name="author"
           fullWidth

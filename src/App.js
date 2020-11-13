@@ -14,7 +14,7 @@ import Grid from "@material-ui/core/Grid";
 import Grow from "@material-ui/core/Grow";
 import AppBar from "@material-ui/core/AppBar";
 import useStyles from "./AppStyles"
-import eventsIcon from "./images/images-events.png";
+import socialIcon from "./images/images-events.png";
 
 import Posts from "./components/posts/Posts";
 import Form from "./components/form/Form";
@@ -34,9 +34,9 @@ const App = () => {
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography color="primary" variant="h2" align="center">
-          Events
+          Social
         </Typography>
-        <img className={classes.img} src={eventsIcon} alt="events" height="60" />
+        <img className={classes.img} src={socialIcon} alt="events" height="60" />
       </AppBar>
       <Grow in>
         <Container>
