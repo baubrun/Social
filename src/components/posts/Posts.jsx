@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import useStyles from "./styles";
 
@@ -37,8 +36,8 @@ const Posts = () => {
           container
           spacing={3}
         >
-          {posts.map((post, idx) => (
-            <Grid key={idx} item sm={6} xs={12}>
+          {posts.map((post) => (
+            <Grid key={post._id} item sm={6} xs={12}>
               <Post post={post} />
             </Grid>
           ))}
