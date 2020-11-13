@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
         justifyContent: "space-between",
         margin: "20px",
     },
-    mainContainer: {
+    container: {
         alignItems: "center",
         display: "flex",
     },
@@ -33,7 +33,7 @@ export default makeStyles((theme) => ({
         backgroundColor: "rgba(0, 0, 0, 0.5)",
         backgroundBlendMode: "darken",
         height: 0,
-        paddingTop: "56.25%",
+        paddingTop: "55%",
     },
     overlay: {
         color: "white",
@@ -46,10 +46,8 @@ export default makeStyles((theme) => ({
         right: "20px",
         top: "20px",
     },
-    smMargin: {
-        margin: theme.spacing(1),
-    },
     title: {
         padding: "0 16px",
     },
+
 }));

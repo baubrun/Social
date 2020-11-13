@@ -4,16 +4,22 @@ import {
 
 
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     appBar: {
         alignItems: "center",
         display: "flex",
-        borderRadius: 15,
+        borderRadius: "15px",
         flexDirection: "row",
         justifyContent: "center",
         margin: "30px 0",
     },
     img: {
-        marginLeft: "15px",
+        margin: "8px",
     },
+    [theme.breakpoints.down("sm")]: {
+        postsContainer: {
+            flexDirection: "column-reverse",
+        },
+    },
+
 }))

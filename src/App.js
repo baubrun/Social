@@ -41,8 +41,8 @@ const App = () => {
         <img className={classes.img} src={socialIcon} alt="events" height="60" />
       </AppBar>
       <Grow in>
-        <Container>
-          <Grid container justify="space-between">
+        <Container >
+          <Grid className={classes.postsContainer} container justify="space-between" spacing={3}>
             <Grid item sm={7} xs={12}>
               <Posts setCurrentId={setCurrentId}/>
             </Grid>

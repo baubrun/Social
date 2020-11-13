@@ -49,7 +49,7 @@ const Post = ({ post, setCurrentId }) => {
 
       <Box className={classes.details}>
         <Typography color="textSecondary" component="h2" variant="body2">
-          {post.tags.map((tag) => `tags: ${tag}`)}
+          {post.tags.map((tag) => `#${tag.trim()} `)}
         </Typography>
       </Box>
 
@@ -75,7 +75,7 @@ const Post = ({ post, setCurrentId }) => {
           onClick={() => dispatch(likePost(post._id))}
         >
           <FavoriteIcon color="primary" fontSize="small" />
-          {`Likes ${post.likes}`}
+          &nbsp;Likes&nbsp; {post.likes}
         </Button>
 
         <Button
@@ -84,7 +84,7 @@ const Post = ({ post, setCurrentId }) => {
           onClick={() => dispatch(deletePost(post._id))}
         >
           <DeleteForever fontSize="small" />
-          Delete
+          &nbsp;Delete&nbsp;
         </Button>
       </CardActions>
     </Card>

@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
   },
   fileInput: {
     margin: "10px 0",
-    // width: "97%",
+    width: "90%",
   },
   heading: {
     color: "white",
@@ -22,6 +22,6 @@ export default makeStyles((theme) => ({
     },
   },
   btn: {
-    marginBottom: 10,
+    marginBottom: "10px",
   },
 }));
