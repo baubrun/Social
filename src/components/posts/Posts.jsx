@@ -7,13 +7,11 @@ import useStyles from "./styles";
 import Post from "./Post";
 import Spinner from "../Spinner";
 
-import { postState } from "../../redux/postSlice";
 
-const Posts = () => {
+const Posts = ({setCurrentId}) => {
   const classes = useStyles();
 
-  const { posts } = useSelector(postState);
-  console.log("posts :>> ", posts);
+  const posts = useSelector(state => state.posts);
 
   return (
     <>
@@ -38,7 +36,7 @@ const Posts = () => {
         >
           {posts.map((post) => (
             <Grid key={post._id} item sm={6} xs={12}>
-              <Post post={post} />
+              <Post post={post} setCurrentId={setCurrentId}/>
             </Grid>
           ))}
         </Grid>

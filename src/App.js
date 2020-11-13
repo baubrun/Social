@@ -1,4 +1,4 @@
-import React, {useEffect,} from "react";
+import React, {useEffect, useState} from "react";
 import "./App.css"
 import {useDispatch} from "react-redux"
 
@@ -7,7 +7,7 @@ import { theme } from "./mui-config";
 
 import {
     getPosts,
-} from "./redux/postSlice"
+} from "./redux/actions/posts"
 
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -23,6 +23,7 @@ import Form from "./components/form/Form";
 const App = () => {
     const classes = useStyles()
     const dispatch = useDispatch()
+    const [currentId, setCurrentId] = useState(0)
 
     useEffect(() => {
         dispatch(getPosts())
@@ -35,7 +36,7 @@ const App = () => {
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography color="primary" variant="h2" align="center">
-          Social
+          Social Wall
         </Typography>
         <img className={classes.img} src={socialIcon} alt="events" height="60" />
       </AppBar>
@@ -43,10 +44,10 @@ const App = () => {
         <Container>
           <Grid container justify="space-between">
             <Grid item sm={7} xs={12}>
-              <Posts />
+              <Posts setCurrentId={setCurrentId}/>
             </Grid>
             <Grid item sm={4} xs={12}>
-              <Form />
+              <Form currentId={currentId} setCurrentId={setCurrentId}/>
             </Grid>
           </Grid>
         </Container>

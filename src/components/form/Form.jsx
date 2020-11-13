@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 
-import {useDispatch} from "react-redux"
+import { useDispatch, useSelector } from "react-redux";
 
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
@@ -11,13 +11,15 @@ import useStyles from "./styles";
 
 import FileBase64 from "react-file-base64";
 
-import {createPost} from "../../redux/postSlice"
+import { createPost, updatePost } from "../../redux/actions/posts";
 
 
-
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((i) => i._id === currentId) : null
+  );
   const [postData, setPostData] = useState({
     author: "",
     file: "",
@@ -26,12 +28,28 @@ const Form = () => {
     title: "",
   });
 
+
+  useEffect(() => {
+    if (post){
+      setPostData(post)
+    }
+  }, [post])
+
+
   const handleSubmit = (evt) => {
-    evt.preventDefault()
-    dispatch(createPost(postData))
-    handleReset()
+    evt.preventDefault();
+    if (currentId === 0) {
+      dispatch(createPost(postData));
+      handleReset();
+    } else {
+      dispatch(updatePost(currentId, postData));
+      handleReset();
+    }
   };
+
+
   const handleReset = () => {
+    setCurrentId(0)
     setPostData({
       author: "",
       file: "",
@@ -49,7 +67,7 @@ const Form = () => {
         onSubmit={(evt) => handleSubmit(evt)}
         noValidate
       >
-        <Typography variant="h6">Social</Typography>
+        <Typography variant="h6">Social Wall</Typography>
         <TextField
           name="author"
           fullWidth
@@ -85,7 +103,7 @@ const Form = () => {
           fullWidth
           label="Tags"
           onChange={(evt) =>
-            setPostData({ ...postData, tags: evt.target.value })
+            setPostData({ ...postData, tags: evt.target.value.split(",") })
           }
           variant="outlined"
           value={postData.tags}
@@ -97,13 +115,14 @@ const Form = () => {
             onDone={({ base64 }) => setPostData({ ...postData, file: base64 })}
           />
         </Box>
-        <Button 
-        className={`${classes.btn} ${classes.heading}`} 
-        color="primary" 
-        fullWidth 
-        size="large" 
-        type="submit"
-        variant="contained">
+        <Button
+          className={`${classes.btn} ${classes.heading}`}
+          color="primary"
+          fullWidth
+          size="large"
+          type="submit"
+          variant="contained"
+        >
           Submit
         </Button>
         <Button
