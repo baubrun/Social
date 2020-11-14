@@ -70,7 +70,6 @@ const Post = ({ post, setCurrentId }) => {
 
       <CardActions className={classes.cardActions}>
         <Button
-          color="primary-dark"
           size="small"
           onClick={() => dispatch(likePost(post._id))}
         >
@@ -79,7 +78,6 @@ const Post = ({ post, setCurrentId }) => {
         </Button>
 
         <Button
-          color="primary-dark"
           size="small"
           onClick={() => dispatch(deletePost(post._id))}
         >

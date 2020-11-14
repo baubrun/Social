@@ -15,6 +15,7 @@ export default makeStyles((theme) => ({
         position: "relative",
     },
     cardActions: {
+        color: theme.palette.primary.dark,
         display: "flex",
         justifyContent: "space-between",
         padding: "0 16px 8px 16px",
