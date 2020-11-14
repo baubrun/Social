@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const url = "http://localhost:5000/posts"
+const url = "https://social-w.herokuapp.com/posts"
 
 export const createPost = (post) => axios.post(url, post);
 export const deletePost = (id) => axios.delete(`${url}/${id}`);
