@@ -2,9 +2,6 @@ Social Wall
 
 A social site where you can CRUD posts along with images.
 
+To run
+yarn start
 
-Serveur 
-cd server && yarn start
-
-Serveur dorsal
-cd server && yarn start
