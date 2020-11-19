@@ -1,12 +1,15 @@
-Social Wall
+### Social Wall
 
-A social site where you can CRUD posts along with images.
+#### A social site where you can CRUD posts along with images.
+&nbsp;
+#### To run
+#### yarn start
+&nbsp;
+#### Technologies: Express.js, MongoDB, Node.js, React.js, Redux
+&nbsp;
 
-To run
-yarn start
-
-
-
-Server Code
+#### Server Code
 https://github.com/baubrun/Social-Server
+
+#### Demo: 
 
